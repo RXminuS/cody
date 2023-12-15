@@ -22,7 +22,7 @@ export async function openFilePath(
     currentViewColumn?: vscode.ViewColumn,
     range?: ActiveTextEditorSelectionRange
 ): Promise<void> {
-    void vscode.commands.executeCommand('vscode.open', filePath)
+    void vscode.commands.executeCommand('vscode.open', vscode.Uri.file(filePath))
     if (!workspaceRootUri) {
         throw new Error('Failed to open file: missing workspace')
     }
